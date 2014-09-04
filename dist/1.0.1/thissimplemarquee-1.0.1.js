@@ -78,13 +78,13 @@ function ThisSimpleMarqueeController(marqueeIDInHTML, contents, options) {
     function addNavigation() {
         var marqueeNavigationElement = $("#" + marqueeId + " .tsm-navigation");
         marqueeContents.forEach(function() {
-            marqueeNavigationElement.append("<img class='marquee-nav-button' src='media/images/nav_button.svg'>");
+            marqueeNavigationElement.append("<img class='marquee-nav-button' src='style/thissimplemarquee-1.0.1/nav_button.svg'>");
         });
     }
 
     function deactivateAllNavButtons() {
         $("#" + marqueeId + " .tsm-navigation img").each(function() {
-            $(this).attr("src", "media/images//nav_button.svg");
+            $(this).attr("src", "style/thissimplemarquee-1.0.1/nav_button.svg");
         });
     }
 
@@ -125,7 +125,7 @@ function ThisSimpleMarqueeController(marqueeIDInHTML, contents, options) {
 
         // Update navigation CSS
         deactivateAllNavButtons();
-        $("#" + marqueeId + " .tsm-navigation img").eq(index).attr("src", "media/images/nav_button_active.svg");
+        $("#" + marqueeId + " .tsm-navigation img").eq(index).attr("src", "style/thissimplemarquee-1.0.1/nav_button_active.svg");
 
         // Update caption
         $("#" + marqueeId + " .tsm-caption-text").text(marqueeContents[index].caption);

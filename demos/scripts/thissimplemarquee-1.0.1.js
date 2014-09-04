@@ -37,14 +37,14 @@ function ThisSimpleMarqueeController(marqueeIDInHTML, contents, options) {
     function initializeFade() {
         if (marqueeOptions.fade === "basic") {
             // Hide all images by default & add transition
-            $("#" + marqueeId + " .photos img").each(function() {
+            $("#" + marqueeId + " .tsm-photos img").each(function() {
                 $(this).css("opacity", 0);
                 $(this).css("transition", "all 1s");
             });
         } else if (marqueeOptions.fade === "carousel") {
             // Position images
-            var photosWidth = $("#" + marqueeId + " .photos").width();
-            $("#" + marqueeId + " .photos img").each(function(index) {
+            var photosWidth = $("#" + marqueeId + " .tsm-photos").width();
+            $("#" + marqueeId + " .tsm-photos img").each(function(index) {
                 $(this).css("left", (index * photosWidth) - selectedImageIndex * photosWidth);
             });
 
@@ -53,7 +53,7 @@ function ThisSimpleMarqueeController(marqueeIDInHTML, contents, options) {
              * without the delay, it would show up immediately.
              */
             setTimeout(function() {
-                $("#" + marqueeId + " .photos img").each(function() {
+                $("#" + marqueeId + " .tsm-photos img").each(function() {
                     $(this).css("transition", "all 0.5s");
                 });
             }, 500);
@@ -62,7 +62,7 @@ function ThisSimpleMarqueeController(marqueeIDInHTML, contents, options) {
 
     function addImages() {
         marqueeContents.forEach(function(entry) {
-            var marqueePhotosElement = $("#" + marqueeId + " .photos");
+            var marqueePhotosElement = $("#" + marqueeId + " .tsm-photos");
             var newImage = $("<img class='marquee-photo' alt='' src='" + entry.imageSrc + "'>");
             newImage.on('dragstart', function(event) { event.preventDefault(); });
             marqueePhotosElement.append(newImage);
@@ -70,21 +70,21 @@ function ThisSimpleMarqueeController(marqueeIDInHTML, contents, options) {
     }
 
     function addCaption() {
-        var marqueeCaptionElement = $("#" + marqueeId + " .caption");
-        var newCaption = $("<p class='caption-text'>Marquee Caption</p>");
+        var marqueeCaptionElement = $("#" + marqueeId + " .tsm-caption");
+        var newCaption = $("<p class='tsm-caption-text'>Marquee Caption</p>");
         marqueeCaptionElement.append(newCaption);
     }
 
     function addNavigation() {
-        var marqueeNavigationElement = $("#" + marqueeId + " .navigation");
+        var marqueeNavigationElement = $("#" + marqueeId + " .tsm-navigation");
         marqueeContents.forEach(function() {
-            marqueeNavigationElement.append("<img class='marquee-nav-button' src='style/thissimplemarquee-1.0/nav_button.svg'>");
+            marqueeNavigationElement.append("<img class='marquee-nav-button' src='style/thissimplemarquee-1.0.1/nav_button.svg'>");
         });
     }
 
     function deactivateAllNavButtons() {
-        $("#" + marqueeId + " .navigation img").each(function() {
-            $(this).attr("src", "style/thissimplemarquee-1.0/nav_button.svg");
+        $("#" + marqueeId + " .tsm-navigation img").each(function() {
+            $(this).attr("src", "style/thissimplemarquee-1.0.1/nav_button.svg");
         });
     }
 
@@ -92,24 +92,24 @@ function ThisSimpleMarqueeController(marqueeIDInHTML, contents, options) {
         // Add padding right to the caption. The size of the padding should cover all nav buttons.
         // The amount of nav buttons is the same as the amount of images. Calculate width.
         var paddingSize = marqueeContents.length * 30;
-        $("#" + marqueeId + " .caption").css("padding-right", paddingSize);
+        $("#" + marqueeId + " .tsm-caption").css("padding-right", paddingSize);
     }
 
     function selectImageWithBasicFade(index) {
         // Hide previous image
-        $("#" + marqueeId + " .photos img").eq(selectedImageIndex).css("opacity", 0);
+        $("#" + marqueeId + " .tsm-photos img").eq(selectedImageIndex).css("opacity", 0);
 
         // Show selected image
         selectedImageIndex = index;
-        $("#" + marqueeId + " .photos img").eq(selectedImageIndex).css("opacity", 1);
+        $("#" + marqueeId + " .tsm-photos img").eq(selectedImageIndex).css("opacity", 1);
     }
 
     function selectImageWidthCarouselFade(index) {
         selectedImageIndex = index;
 
         // Update images CSS
-        var photosWidth = $("#" + marqueeId + " .photos").width();
-        $("#" + marqueeId + " .photos img").each(function(index) {
+        var photosWidth = $("#" + marqueeId + " .tsm-photos").width();
+        $("#" + marqueeId + " .tsm-photos img").each(function(index) {
             $(this).css("left", (index * photosWidth) - selectedImageIndex * photosWidth);
         });
     }
@@ -125,10 +125,10 @@ function ThisSimpleMarqueeController(marqueeIDInHTML, contents, options) {
 
         // Update navigation CSS
         deactivateAllNavButtons();
-        $("#" + marqueeId + " .navigation img").eq(index).attr("src", "style/thissimplemarquee-1.0/nav_button_active.svg");
+        $("#" + marqueeId + " .tsm-navigation img").eq(index).attr("src", "style/thissimplemarquee-1.0.1/nav_button_active.svg");
 
         // Update caption
-        $("#" + marqueeId + " .caption-text").text(marqueeContents[index].caption);
+        $("#" + marqueeId + " .tsm-caption-text").text(marqueeContents[index].caption);
         updateCaptionHeight();
     }
 
@@ -159,7 +159,7 @@ function ThisSimpleMarqueeController(marqueeIDInHTML, contents, options) {
             lastUserInputTimestamp = new Date().getTime();
         }
 
-        $("#" + marqueeId + " .navigation img").each(function(index) {
+        $("#" + marqueeId + " .tsm-navigation img").each(function(index) {
             $(this).click(function(e) {
                 updateUserInputTimestamp();
                 selectImage(index);
@@ -178,13 +178,13 @@ function ThisSimpleMarqueeController(marqueeIDInHTML, contents, options) {
     }
 
     function updateCaptionHeight() {
-        var captionText = $("#" + marqueeId + " .caption-text");
+        var captionText = $("#" + marqueeId + " .tsm-caption-text");
         if (captionText.text().length != 0) {
-            $("#" + marqueeId + " .caption").css("height", captionText.height() + 30);
-            $("#" + marqueeId + " .caption").css("bottom", 0);
+            $("#" + marqueeId + " .tsm-caption").css("height", captionText.height() + 30);
+            $("#" + marqueeId + " .tsm-caption").css("bottom", 0);
         } else {
-            $("#" + marqueeId + " .caption").css("height", 0);
-            $("#" + marqueeId + " .caption").css("bottom", "-30px");
+            $("#" + marqueeId + " .tsm-caption").css("height", 0);
+            $("#" + marqueeId + " .tsm-caption").css("bottom", "-30px");
         }
     }
 

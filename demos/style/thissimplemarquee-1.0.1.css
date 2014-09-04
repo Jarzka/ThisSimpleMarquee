@@ -5,13 +5,13 @@
   position: relative;
   margin-bottom: 15px;
 }
-.tsm-marquee .photos img {
+.tsm-marquee .tsm-photos img {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
 }
-.tsm-marquee .caption {
+.tsm-marquee .tsm-caption {
   box-sizing: border-box;
   transition: all 0.5s;
   color: white;
@@ -24,15 +24,15 @@
   width: 100%;
   padding: 15px;
 }
-.tsm-marquee .caption .caption-text {
+.tsm-marquee .tsm-caption .tsm-caption-text {
   margin: 0;
 }
-.tsm-marquee .navigation {
+.tsm-marquee .tsm-navigation {
   position: absolute;
   bottom: 10px;
   right: 10px;
 }
-.tsm-marquee .navigation img {
+.tsm-marquee .tsm-navigation img {
   width: 24px;
   height: 24px;
   margin-left: 3px;
