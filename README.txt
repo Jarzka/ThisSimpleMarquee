@@ -19,14 +19,17 @@ Quick Start
 3. Link thissimplemarquee-x.css to your project. Example:
 
     <link rel="stylesheet" type="text/css" href="style/thissimplemarquee-1.0.css">
-Note: thissimplemarquee-x folder containing nav icons should be located in the same folder as thissimplemarquee.css
+    
+Note: The current version assumes that nav icons are located at /style/thissimplemarquee-x/
+If you want to change the location, open thissimplemarquee-x.js, look for lines containing ".svg" and
+change the path.
 
 4. Add Marquee HTML code in to your page. Example:
 
     <div id="marquee-1" class="tsm-marquee">
-        <div class="tsm-photos"></div>
-        <div class="tsm-caption"></div>
-        <div class="tsm-navigation"></div>
+        <div class="photos"></div>
+        <div class="caption"></div>
+        <div class="navigation"></div>
     </div>
 You can use whatever id you want but every marquee should have an unique id.
 
