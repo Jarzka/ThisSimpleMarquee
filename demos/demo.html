@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <title>My Marquee</title>
+
+    <link rel="stylesheet" type="text/css" href="style/thissimplemarquee-1.0.css">
+    <link rel="stylesheet" type="text/css" href="style/demo.css">
+
+    <script src="scripts/js/libraries/jquery-1.11.1.min.js"></script>
+    <script>
+        /* For some reason jQuery Mobile creates an ugly "loading" text at the bottom of the page.
+         * This code is used to prevent that. */
+        jQuery(document).on("mobileinit", function() {
+            jQuery.mobile.autoInitializePage = false;
+        });
+    </script>
+    <script src="scripts/js/libraries/jquery.mobile-1.3.2.min.js"></script>
+    <script src="scripts/js/thissimplemarquee-1.0.js"></script>
+</head>
+<body>
+    <div class="marquees">
+        <h1>Marquee 1 with Carousel Fade</h1>
+        <div id="marquee-1" class="tsm-marquee">
+            <div class="photos"></div>
+            <div class="caption"></div>
+            <div class="navigation"></div>
+        </div>
+
+        <h1>Marquee 2 with Basic Fade and Autoplay</h1>
+        <div id="marquee-2" class="tsm-marquee">
+            <div class="photos"></div>
+            <div class="caption"></div>
+            <div class="navigation"></div>
+        </div>
+
+        <p class="note">Note: Images used in this page are not made by me but I have a permission to use them.</p>
+    </div>
+</body>
+</html>
+
+<script>
+    $(function() {
+        // Document loaded, add controllers.
+
+        var contents1 = [
+            {
+                imageSrc: "media/images/1.jpg",
+                caption: "“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.” Albert Einstein"
+            },
+            {
+                imageSrc: "media/images/2.jpg",
+                caption: "“You only live once, but if you do it right, once is enough.” Mae West"
+            },
+            {
+                imageSrc: "media/images/3.jpg",
+                caption: "“A friend is someone who knows all about you and still loves you.” Elbert Hubbard"
+            },
+            {
+                imageSrc: "media/images/4.jpg",
+                caption: ""
+            }
+        ];
+        var options1 = {
+            fade: "carousel",
+            autoplay: false,
+            autoplayTimeMs: 5000
+        };
+        var controller1 = new ThisSimpleMarqueeController("marquee-1", contents1, options1);
+
+        var contents2 = [
+            {
+                imageSrc: "media/images/6.jpg",
+                caption: ""
+            },
+            {
+                imageSrc: "media/images/7.jpg",
+                caption: "“And in the end, the love you take is equal to the love you make.” Paul McCartney"
+            },
+            {
+                imageSrc: "media/images/8.jpg",
+                caption: ""
+            },
+            {
+                imageSrc: "media/images/9.jpg",
+                caption: ""
+            },
+            {
+                imageSrc: "media/images/10.jpg",
+                caption: "“We’re born alone, we live alone, we die alone. Only through our love and friendship can we create the illusion for the moment that we’re not alone.” Orson Welles"
+            },
+            {
+                imageSrc: "media/images/11.jpg",
+                caption: "“Don’t cry because it’s over, smile because it happened.” Dr. Seuss"
+            },
+            {
+                imageSrc: "media/images/12.jpg",
+                caption: "“When you love someone you are scared of getting hurt and you will get hurt.” Brandon Scott Gorrell"
+            }
+        ];
+        var options2 = {
+            fade: "basic",
+            autoplay: true,
+            autoplayTimeMs: 5000
+        };
+        var controller2 = new ThisSimpleMarqueeController("marquee-2", contents2, options2);
+    })
+</script>

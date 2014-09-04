@@ -1,0 +1,39 @@
+.tsm-marquee {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 15px;
+}
+.tsm-marquee .photos img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.tsm-marquee .caption {
+  box-sizing: border-box;
+  transition: all 0.5s;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.6;
+  height: 100px;
+  width: 100%;
+  padding: 15px;
+}
+.tsm-marquee .caption .caption-text {
+  margin: 0;
+}
+.tsm-marquee .navigation {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.tsm-marquee .navigation img {
+  width: 24px;
+  height: 24px;
+  margin-left: 3px;
+}
