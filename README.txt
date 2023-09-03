@@ -1,7 +1,7 @@
 Live Demo
 =================
 
-http://voimala.org/projects/thissimplemarquee/
+http://pikseli.org/projects/thissimplemarquee/
 
 Quick Start
 =================
